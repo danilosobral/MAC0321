@@ -13,7 +13,7 @@ public class Batalha extends Controller{
 		}
 
 		public void action() {
-			addEvent(new EndBatalha(evtTime, t2, t1));
+			addEvent(new EndBatalha(evtTime, t2, t1)); 
 		}
 
 		public String description() {
@@ -122,21 +122,19 @@ public class Batalha extends Controller{
 						break;
 				case 1: addEvent(new Fuga(tm + 100, t1, t2));
 			}
-			switch(t2.estrategia()){
-				case 4: addEvent(new Ataque(tm + 400, t2, t1));
-						break;
-				case 3: addEvent(new UsarItem(tm + 300, t2, t1));
-						break;
-				case 2: addEvent(new TrocarPokemon(tm + 200, t2, t1));
-						break;
-				case 1: addEvent(new Fuga(tm + 100, t2, t1));
-			}
+				switch(t2.estrategia()){
+					case 4: addEvent(new Ataque(tm + 400, t2, t1));
+							break;
+					case 3: addEvent(new UsarItem(tm + 300, t2, t1));
+							break;
+					case 2: addEvent(new TrocarPokemon(tm + 200, t2, t1));
+							break;
+					case 1: addEvent(new Fuga(tm + 100, t2, t1));
+				}
 		}
 
 		public String description() {
-			System.out.println("Vida de "+ t1.getPokemonAtivo().getNome() + ": "+ t1.getPokemonAtivo().getVida());
-			System.out.println("Vida de "+ t2.getPokemonAtivo().getNome() + ": "+ t2.getPokemonAtivo().getVida());
-			return "\nComeça o round " +(++nRound) + "\n";
+			return "\nComeça o round " +(++nRound) + "\nVida de "+ t1.getPokemonAtivo().getNome() + ": "+ t1.getPokemonAtivo().getVida() +"\nVida de "+ t2.getPokemonAtivo().getNome() + ": "+ t2.getPokemonAtivo().getVida();
 		}
 	}
 
